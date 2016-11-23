@@ -69,7 +69,7 @@ if [[ ("$ver" == "vec") || ("$ver" == "all") ]]; then
 
     for f in `ls "$stsdir"/split_sts/*.txt.out`; do # Fill out empty triplet files with original sentence (when oie couldn't found triplets)
         if [ \! -s $f ]; then
-            cat "${f%.*}" > "$f"
+            cat "${f%.*}" | bash bigrams.sh > "$f"
         fi
     done
 
