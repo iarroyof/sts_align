@@ -24,7 +24,7 @@ fB = dirname(fA) + "/" + "b" + basename(fA)[1:]         # input_file_triples sen
 fb = dirname(fA) + "/" + "b" + basename(fA)[1:] + ".ftw" # input_file_vectors sentence B
 comp = "00"
 
-with open(fA, "r") as f:
+with open(fA, "r") as f: # File containing triplets or NPVP tuples
     lines = f.readlines()
     from re import match
     if match("0\.\d+\\t|1\.0\\t", lines[0]): #lines[0].startswith("1.0\t"):
@@ -38,16 +38,20 @@ with open(fA, "r") as f:
         try:
             terms_oieA = [{t[0].replace(' ', '_'):phr_vects[t[0].replace(' ', '_')], \
                 t[1].replace(' ', '_'):phr_vects[t[1].replace(' ', '_')], \
-                t[2].replace(' ', '_'): phr_vects[t[2].replace(' ', '_')]} for t in trips] # [{"nphr_a":vector, "Vphr_1":vector, "n_phr_b":vector},.., {"n_phr_a":vector, "Vphr_N":vector, "n_phr_b":vector}]
+                t[2].replace(' ', '_'): phr_vects[t[2].replace(' ', '_')]} for t in trips] 
+                # [{"nphr_a":vector, "Vphr_1":vector, "n_phr_b":vector},.., {"n_phr_a":vector, "Vphr_N":vector, "n_phr_b":vector}]
         except Exception, e: 
             print basename(fA) + ": trip :" + str(e)
             exit()
-    else:
+    elif match("NP\\t", lines[0]):
         comp = '0' + comp[1:]        
         with open(fa, "r") as F:
             lines = F.readlines()
             try:
-                terms_oieA = ( lines[0].strip().lower().split()[0], np.fromstring(" ".join(lines[0].split()[1:]), sep=" ") ) # phrases and vectors
+                #terms_oieA = ( lines[0].strip().lower().split()[0], \ # phrases and vectors
+                #               np.fromstring(" ".join(lines[0].split()[1:]), sep=" ") ) # bigram vectors --v
+                terms_oieA = [line.strip().lower().split()[0]: \
+                                np.fromstring(" ".join(line.split()[1:]), sep=" ") for line in lines]
             except Exception, e: 
                 print basename(fA) + ": sent :" + str(e)
                 exit()
@@ -63,7 +67,9 @@ with open(fB, "r") as f:
         for line in lines:        
             trips.append(line.strip().lower().split("\t")[1:]) # all except the initial "1.0"
         try:
-            terms_oieB = [{t[0].replace(' ', '_'):phr_vects[t[0].replace(' ', '_')], t[1].replace(' ', '_'):phr_vects[t[1].replace(' ', '_')], t[2].replace(' ', '_'): phr_vects[t[2].replace(' ', '_')]} for t in trips] 
+            terms_oieB = [{t[0].replace(' ', '_'):phr_vects[t[0].replace(' ', '_')], \
+                            t[1].replace(' ', '_'):phr_vects[t[1].replace(' ', '_')], \
+                              t[2].replace(' ', '_'): phr_vects[t[2].replace(' ', '_')]} for t in trips] 
         # [{"nphr_a":vector, "Vphr_1":vector, "n_phr_b":vector},.., {"n_phr_a":vector, "Vphr_N":vector, "n_phr_b":vector}]
         except Exception, e:
             print basename(fB) + ": trip :" + str(e)
@@ -73,7 +79,9 @@ with open(fB, "r") as f:
         with open(fb, "r") as F:
             lines = F.readlines()
             try:
-                terms_oieB = ( lines[0].strip().lower().split()[0], np.fromstring(" ".join(lines[0].split()[1:]), sep=" ") ) # phrases and vectors
+#                terms_oieB = ( lines[0].strip().lower().split()[0], np.fromstring(" ".join(lines[0].split()[1:]), sep=" ") ) # phrases and vectors
+                terms_oieB = [line.strip().lower().split()[0]: \     # bigram vectors
+                                np.fromstring(" ".join(line.split()[1:]), sep=" ") for line in lines]
             except Exception, e:
                 print basename(fB) + ": sent :" + str(e)
                 exit()
@@ -83,8 +91,13 @@ dist = []
 trip_dist = []
 if comp == "10": 
     for triplet in terms_oieA: # Fixed sentence vector B
-        dist.append( (triplet.keys(), np.array([cosine(triplet[t],\
-                            terms_oieB[1]) for t in triplet])) )
+    # ---------------------------------------------------
+        for bgram in terms_oieB:
+    # ---------------------------------------------------    
+        #dist.append( (triplet.keys(), \
+        #                np.array([cosine(triplet[t], terms_oieB[1]) for t in triplet])) )
+            dist.append( (triplet.keys(), \
+                            np.array([cosine(triplet[t], bgram[1]) for t in triplet])) )
     trip_dist = np.mean([np.mean(d[1]) for d in dist])
 
 elif comp == "01": 
