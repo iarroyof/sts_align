@@ -115,28 +115,27 @@ if comp == "10":
 
     for word in terms_oieB[0]: # (NPs)
     # [{"NP_phrse_1":vector,..., "NP_phrase_m":vector}, {"VP_phrse_1":vector,..., "VP_phrase_m'":vector}]
-        for triplet in terms_oieB:
+        for triplet in terms_oieA:
         # [{"nphr_a":vector, "Vphr_1":vector, "n_phr_b":vector},.., {"n_phr_a":vector, "Vphr_N":vector, "n_phr_b":vector}]
             for t in triplet:
-                if t.startswith("VP_") and word.startswith("NP_"):
+                if t.startswith("VP_"):
                     dist.append( cosine(triplet[t], terms_oieB[0][word]) )
                 
         dist_NVPs.append(dist) 
         dist = []
-
-    st()
-
     dist_NVPs = np.array(reduce(operator.add, dist_NVPs))
     dist = []
-
+    
     for word in terms_oieB[1]: # (VPs)
         for triplet in terms_oieA:
-            dist.append( [cosine(triplet[t], terms_oieB[1][word]) for t in triplet if t.startswith("NP_")] )
+            for t in triplet :
+                if t.startswith("NP_"):
+                    dist.append( cosine(triplet[t], terms_oieB[1][word]) )
         dist_VNPs.append(dist)
         dist = []
     dist_VNPs = np.array(reduce(operator.add, dist_VNPs))
-    trip_dist = np.mean(dist_VNPs) + np.mean(dist_NVPs)
-
+    #trip_dist = np.mean(dist_VNPs) + np.mean(dist_NVPs)
+    
 elif comp == "01":
     dist_NVPs = []
     dist_VNPs = [] 
@@ -157,9 +156,9 @@ elif comp == "01":
         dist_VNPs.append(dist)
     dist_VNPs = np.array(reduce(operator.add, dist_VNPs))
     
-    trip_dist = np.mean(dist_VNPs) + np.mean(dist_NVPs)
+    #trip_dist = np.mean(dist_VNPs) + np.mean(dist_NVPs)
 
-elif comp == "11": # PoS both A and B
+elif comp == "00": # PoS both A and B
     dist_NVPs = []
     dist_VNPs = []
     # [{"NP_phrse_1":vector,..., "NP_phrase_m":vector}, {"VP_phrse_1":vector,..., "VP_phrase_m'":vector}]
@@ -167,19 +166,23 @@ elif comp == "11": # PoS both A and B
                             for NP_a in terms_oieA[0] for VP_b in terms_oieB[1] ] )# (NPs)
     dist_VNPs.append( [cosine(terms_oieA[1][VP_a], terms_oieB[0][NP_b]) \
                             for VP_a in terms_oieA[1] for NP_b in terms_oieB[0] ] ) # (VPs)
-    
-    trip_dist = np.mean(dist_VNPs) + np.mean(dist_NVPs)    
 
-elif comp == "00": # Triplets A and B
+elif comp == "11": # Triplets A and B
     dist_NVPs = []
     dist_VNPs = []
-    dist = []
     
-    for triplet in terms_oieB:
+    for triplet_b in terms_oieB:
         # [{"nphr_a":vector, "Vphr_1":vector, "n_phr_b":vector},.., {"n_phr_a":vector, "Vphr_N":vector, "n_phr_b":vector}]
-        dist.append( [cosine(triplet[t], terms_oieA[0][word]) for t in triplet if t.startswith("VP_")] )
-    dist_NVPs.append(dist)
-    dist_NVPs = np.array(reduce(operator.add, dist_NVPs))
+        for triplet_a in terms_oieA:
+            # [{"nphr_a":vector, "Vphr_1":vector, "n_phr_b":vector},.., {"n_phr_a":vector, "Vphr_N":vector, "n_phr_b":vector}]
+            for t_a in triplet_a:
+                for t_b in triplet_b: 
+                    if t_a.startswith("NP_") and t_b.startswith("VP_"):
+                        dist_NVPs.append( cosine(triplet_a[t_a], triplet_b[t_b]) )
+                    if t_a.startswith("VP_") and t_b.startswith("NP_"):
+                        dist_VNPs.append( cosine(triplet_a[t_a], triplet_b[t_b]) )
+
+
 #-----------------------------------------------------------------------------------------
 #if args.v:
 #    if args.s:
@@ -198,4 +201,8 @@ elif comp == "00": # Triplets A and B
 #    print ">> Global distance:>> %.5f" % (5.0 * trip_dist)
 #else:
 #    print "%.5f" % (5.0 * trip_dist)
+print "Verbs to Nouns: %s" % dist_VNPs
+print "Nouns to verbs: %s" % dist_NVPs
+
+trip_dist = np.median(dist_VNPs) + np.median(dist_NVPs)
 print "%.5f" % (trip_dist)
