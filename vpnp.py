@@ -28,7 +28,7 @@ with open(penn_tags, 'r') as f:
                 
 with open(args.i, 'rU') as f:  #opens parsed Conll format tags file
     data = list(list(rec) for rec in csv.reader(f, delimiter='\t')) #reads csv into a list of lists
-    print data
+    
     for sublist in data:
         filt = filter(lambda x: x in verb_tags, [w.lower() for w in sublist])
         if filt:
