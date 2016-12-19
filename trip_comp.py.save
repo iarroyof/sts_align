@@ -6,7 +6,6 @@
 # an indication that something has been present;
 
 from pdb import set_trace as st
-from math import isnan
 import numpy as np
 import array
 import string as strg
@@ -43,9 +42,8 @@ with open(fA, "r") as f: # File containing triplets or NPVP tuples
                            "VP_" + t[1].replace(' ', '_'): phr_vects[t[1].replace(' ', '_')], \
                            "NP_" + t[2].replace(' ', '_'): phr_vects[t[2].replace(' ', '_')] } for t in trips] 
                 # [{"nphr_a":vector, "Vphr_1":vector, "n_phr_b":vector},.., {"n_phr_a":vector, "Vphr_N":vector, "n_phr_b":vector}]
-            na = True
-            va = True
-            
+            assert terms_oieA
+
         except Exception, e: 
             print basename(fA) + " :: trip :: " + str(e)
             exit()
@@ -61,29 +59,18 @@ with open(fA, "r") as f: # File containing triplets or NPVP tuples
                 dups.append(lines[1].strip().lower().split("\t")[1:]) # VP term vp    verb    ... phra
 
                 terms_oieA = []
-                if len(dups[0]):
-                    terms_oieA.append({"NP_" + t.replace(' ', '_'): phr_vects[t.replace(' ', '_')]  for t in dups[0]}) # get vector of each word/term and put them
-                    na = True
-                else:
-                    terms_oieA.append({})
-                    na = False
-                if len(dups[1]):
-                    terms_oieA.append({"VP_" + t.replace(' ', '_'): phr_vects[t.replace(' ', '_')]  for t in dups[1]}) # together into a dictionary
-                    va = True
-                else:
-                    terms_oieA.append({})
-                    va = False
+                terms_oieA.append({"NP_" + t.replace(' ', '_'): phr_vects[t.replace(' ', '_')]  for t in dups[0]}) # get vector of each word/term and put them
+                terms_oieA.append({"VP_" + t.replace(' ', '_'): phr_vects[t.replace(' ', '_')]  for t in dups[1]}) # together into a dictionary
+
+                assert terms_oieA
 
             except Exception, e: 
                 print basename(fA) + " :: sent :: " + str(e)
                 exit()
 
 with open(fB, "r") as f:
-    
     lines = f.readlines()
     if match("0\.\d+\\t|1\.0\\t", lines[0]):
-        nb = True
-        vb = True
         trips = []
         comp = comp[0] + '1' # 01
         with open(fb, "r") as F:
@@ -92,19 +79,18 @@ with open(fB, "r") as f:
         for line in lines:        
             trips.append(line.strip().lower().split("\t")[1:]) # all except the initial "1.0"
         try:
-        # [{"nphr_a":vector, "Vphr_1":vector, "n_phr_b":vector},.., {"n_phr_a":vector, "Vphr_N":vector, "n_phr_b":vector}]
-            terms_oieB = [{"NP_" + t[0].replace(' ', '_'): phr_vects[t[0].replace(' ', '_')], \
-                           "VP_" + t[1].replace(' ', '_'): phr_vects[t[1].replace(' ', '_')], \
+            terms_oieB = [{"NP_" + t[0].replace(' ', '_'):phr_vects[t[0].replace(' ', '_')], \
+                           "VP_" + t[1].replace(' ', '_'):phr_vects[t[1].replace(' ', '_')], \
                            "NP_" + t[2].replace(' ', '_'): phr_vects[t[2].replace(' ', '_')]} for t in trips] 
-            nb = True
-            vb = True
+        # [{"nphr_a":vector, "Vphr_1":vector, "n_phr_b":vector},.., {"n_phr_a":vector, "Vphr_N":vector, "n_phr_b":vector}]
+            assert terms_oieB
+
         except Exception, e:
             print basename(fB) + ": trip :" + str(e)
             exit()
-    elif match("NP", lines[0]):
+    elif match("NP\\t", lines[0]):
         comp = comp[0] + '0'        
         dups = []
-        
         with open(fb, "r") as F:
             vectors = F.readlines() # term_bonito 0.123 3.2134 -2.342
             phr_vects = {line.strip().lower().split()[0]: np.fromstring(" ".join(line.split()[1:]), sep=" ")\
@@ -112,21 +98,13 @@ with open(fB, "r") as f:
             try:
                 dups.append(lines[0].strip().lower().split("\t")[1:]) # NP term np    term    ... noun
                 dups.append(lines[1].strip().lower().split("\t")[1:]) # VP term vp    verb    ... phra
-                
+
                 terms_oieB = []
-                if len(dups[0]):
-                    terms_oieB.append({"NP_" + t.replace(' ', '_'): phr_vects[t.replace(' ', '_')]  for t in dups[0]}) # get vector of each word/term and put them
-                    nb = True
-                else:
-                    terms_oieB.append({})
-                    nb = False
-                if len(dups[1]):         
-                    terms_oieB.append({"VP_" + t.replace(' ', '_'): phr_vects[t.replace(' ', '_')]  for t in dups[1]}) # together into a dictionary
-                    vb = True
-                else:
-                    terms_oieB.append({})
-                    vb = False
+                terms_oieB.append({"NP_" + t.replace(' ', '_'): phr_vects[t.replace(' ', '_')]  for t in dups[0]}) # get vector of each word/term and put them
+                terms_oieB.append({"VP_" + t.replace(' ', '_'): phr_vects[t.replace(' ', '_')]  for t in dups[1]}) # together into a dictionary
                 
+                assert terms_oieB
+
             except Exception, e:
                 print basename(fB) + ": sent :" + str(e)
                 exit()
@@ -142,88 +120,109 @@ if comp == "10":
     dist_NVPs = []
     dist_VNPs = []    
     dist = []
-    
-    if nb and va:
-        for word in terms_oieB[0]: # (NPs)
+    try:
+        assert terms_oieB
+    except :
+        print basename(fB) + " :: 10 :: " + "Assertion"
+        exit()
+
+    try:
+        assert terms_oieA
+    except :
+        print basename(fA) + " :: 10 :: " + "Assertion"
+        exit()
+
+    for word in terms_oieB[0]: # (NPs)
     # [{"NP_phrse_1":vector,..., "NP_phrase_m":vector}, {"VP_phrse_1":vector,..., "VP_phrase_m'":vector}]
-            for triplet in terms_oieA:
+        for triplet in terms_oieA:
         # [{"nphr_a":vector, "Vphr_1":vector, "n_phr_b":vector},.., {"n_phr_a":vector, "Vphr_N":vector, "n_phr_b":vector}]
-                for t in triplet:
-                    if t.startswith("VP_"):
-                        dist.append( cosine(triplet[t], terms_oieB[0][word]) )
-            dist_NVPs.append(dist) 
-            dist = []
-        
-        dist_NVPs = np.array(reduce(operator.add, dist_NVPs)) 
-        nvp = True
-    else:   
-        nvp = False
+            for t in triplet:
+                if t.startswith("VP_"):
+                    dist.append( cosine(triplet[t], terms_oieB[0][word]) )
+                
+        dist_NVPs.append(dist) 
+        dist = []
+    dist_NVPs = np.array(reduce(operator.add, dist_NVPs))
     dist = []
     
-    if vb and na:
-        for word in terms_oieB[1]: # (VPs)
-            for triplet in terms_oieA:
-                for t in triplet :
-                    if t.startswith("NP_"):
-                        dist.append( cosine(triplet[t], terms_oieB[1][word]) )
-            dist_VNPs.append(dist)
-            dist = []
-        dist_VNPs = np.array(reduce(operator.add, dist_VNPs))
-        vnp = True
-    else:
-        vnp = False
+    for word in terms_oieB[1]: # (VPs)
+        for triplet in terms_oieA:
+            for t in triplet :
+                if t.startswith("NP_"):
+                    dist.append( cosine(triplet[t], terms_oieB[1][word]) )
+        dist_VNPs.append(dist)
+        dist = []
+    dist_VNPs = np.array(reduce(operator.add, dist_VNPs))
     
 elif comp == "01":
     dist_NVPs = []
     dist_VNPs = [] 
     dist = []
-    
-    if na and vb:
-        for word in terms_oieA[0]: # (NPs)
-    # [{"NP_phrse_1":vector,..., "NP_phrase_m":vector}, {"VP_phrse_1":vector,..., "VP_phrase_m'":vector}]
-            for triplet in terms_oieB:
-        # [{"nphr_a":vector, "Vphr_1":vector, "n_phr_b":vector},.., {"n_phr_a":vector, "Vphr_N":vector, "n_phr_b":vector}]
-                dist.append( [cosine(triplet[t], terms_oieA[0][word]) for t in triplet if t.startswith("VP_")] )
-            dist_NVPs.append(dist) 
-        dist_NVPs = np.array(reduce(operator.add, dist_NVPs))
-        dist = []
-        nvp = True
-    else:
-        nvp = False
 
-    if va and nb:
-        for word in terms_oieA[1]: # (VPs)
-            for triplet in terms_oieB:
-                dist.append( [cosine(triplet[t], terms_oieA[1][word]) for t in triplet if t.startswith("NP_")] )
-            dist_VNPs.append(dist)
-        dist_VNPs = np.array(reduce(operator.add, dist_VNPs))
-        vnp = True
-    else:
-        vnp = False
+    try:
+        assert terms_oieB
+    except :
+        print basename(fB) + " :: 01 :: " + "Assertion"
+        exit()
+
+    try:
+        assert terms_oieA
+    except :
+        print basename(fA) + " :: 01 :: " + "Assertion"
+        exit()
+
+    for word in terms_oieA[0]: # (NPs)
+    # [{"NP_phrse_1":vector,..., "NP_phrase_m":vector}, {"VP_phrse_1":vector,..., "VP_phrase_m'":vector}]
+        for triplet in terms_oieB:
+        # [{"nphr_a":vector, "Vphr_1":vector, "n_phr_b":vector},.., {"n_phr_a":vector, "Vphr_N":vector, "n_phr_b":vector}]
+            dist.append( [cosine(triplet[t], terms_oieA[0][word]) for t in triplet if t.startswith("VP_")] )
+        dist_NVPs.append(dist) 
+    dist_NVPs = np.array(reduce(operator.add, dist_NVPs))
+    dist = []
+
+    for word in terms_oieA[1]: # (VPs)
+        for triplet in terms_oieB:
+            dist.append( [cosine(triplet[t], terms_oieA[1][word]) for t in triplet if t.startswith("NP_")] )
+        dist_VNPs.append(dist)
+    dist_VNPs = np.array(reduce(operator.add, dist_VNPs))
     
 elif comp == "00": # PoS both A and B
     dist_NVPs = []
     dist_VNPs = []
 
+    try:
+        assert terms_oieB
+    except :
+        print basename(fB) + " :: 00 :: " + "Assertion"
+        exit()
+
+    try:
+        assert terms_oieA
+    except :
+        print basename(fA) + " :: 00 :: " + "Assertion"
+        exit()
+
     # [{"NP_phrse_1":vector,..., "NP_phrase_m":vector}, {"VP_phrse_1":vector,..., "VP_phrase_m'":vector}]
-    if na and vb:
-        dist_NVPs.append( [cosine(terms_oieA[0][NP_a], terms_oieB[1][VP_b]) \
+    dist_NVPs.append( [cosine(terms_oieA[0][NP_a], terms_oieB[1][VP_b]) \
                             for NP_a in terms_oieA[0] for VP_b in terms_oieB[1] ] )# (NPs)
-        nvp = True
-    else:
-        nvp = False
-
-    if nb and va:
-        dist_VNPs.append( [cosine(terms_oieA[1][VP_a], terms_oieB[0][NP_b]) \
+    dist_VNPs.append( [cosine(terms_oieA[1][VP_a], terms_oieB[0][NP_b]) \
                             for VP_a in terms_oieA[1] for NP_b in terms_oieB[0] ] ) # (VPs)
-        vnp = True
-    else:
-        vnp = False
 
-    
 elif comp == "11": # Triplets A and B
     dist_NVPs = []
     dist_VNPs = []
+    
+    try:
+        assert terms_oieB
+    except :
+        print basename(fB) + " :: 11 :: " + "Assertion"
+        exit()
+
+    try:
+        assert terms_oieA
+    except :
+        print basename(fA) + " :: 11 :: " + "Assertion"
+        exit()
 
     for triplet_b in terms_oieB:
         # [{"nphr_a":vector, "Vphr_1":vector, "n_phr_b":vector},.., {"n_phr_a":vector, "Vphr_N":vector, "n_phr_b":vector}]
@@ -235,37 +234,16 @@ elif comp == "11": # Triplets A and B
                         dist_NVPs.append( cosine(triplet_a[t_a], triplet_b[t_b]) )
                     if t_a.startswith("VP_") and t_b.startswith("NP_"):
                         dist_VNPs.append( cosine(triplet_a[t_a], triplet_b[t_b]) )
-    vnp = True
-    nvp = True
+
+#print "Verbs to Nouns: %s" % dist_VNPs
+#print "Nouns to verbs: %s" % dist_NVPs
 
 # Changer ici les formes de sortir les resultants.
-if vnp and nvp:    
-    try:
-        trip_dist = np.mean(dist_VNPs) + np.mean(dist_NVPs) - 1     
-        
-    except Warning:
-        print "%s :: %s nb %s vb %s :: Warning nvp; vnp" % (basename(fA), comp, nb, vb)
-        exit()
-    
-elif vnp and not nvp:
-    try:
-        trip_dist = np.median(dist_VNPs)
+if comp == "00":
+    trip_dist = np.mean(dist_VNPs) + np.mean(dist_NVPs)        
+elif comp == "11":
+    trip_dist = np.mean(dist_VNPs) + np.mean(dist_NVPs)
+else:
+    trip_dist = np.median(dist_VNPs) + np.median(dist_NVPs)
 
-    except Warning:
-        print "%s :: %s nb %s vb %s :: Assertion vnp; NOT nvp" % (basename(fA), comp, nb, vb)
-        exit()
-
-elif not vnp and nvp:
-    try:
-        trip_dist = np.median(dist_NVPs) 
-    except Warning:
-        print "%s :: %s nb %s vb %s :: Assertion NOT vnp; vnp " % (basename(fA), comp, nb, vb)
-        exit()
-
-if isnan(trip_dist):
-    print "%s :: %s nb %s vb %s :: Assertion NaN" % (basename(fA), comp, nb, vb)
-    print "NV ", dist_NVPs
-    print "VN ", dist_VNPs
-    exit()
-
-print "%.5f" % (trip_dist)
+print "%.5f" % (trip_dist - 1)

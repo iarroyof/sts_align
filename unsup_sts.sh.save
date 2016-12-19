@@ -68,13 +68,14 @@ fi
 
 if [[ ("$ver" == "vec") || ("$ver" == "all") ]]; then
 # Fill out empty triplet files with original sentence (when oie couldn't found triplets).
-    for f in `ls "$stsdir"/split_sts/*.txt.out`; do
-        if [ \! -s "$f" ]; then
-            #cat "${f%.*}" | bash bigrams.sh > "$f"
-            java -cp "$ST/*" -Xmx2g edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos -outputFormat conll -file "${f%.*}" -outputDirectory $(dirname "$f")
-            python vpnp.py -i "${f%.*}".conll > "$f"
-        fi
-    done
+#    for f in `ls "$stsdir"/split_sts/*.txt.out`; do
+#        if [ \! -s "$f" ]; then
+#            #cat "${f%.*}" | bash bigrams.sh > "$f"
+#            java -cp "$ST/*" -Xmx2g edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos -outputFormat conll -file "${f%.*}" -outputDirectory $(dirname "$f")
+#            python vpnp.py -i "${f%.*}".conll > "$f"
+#        fi
+#    done
+    parallel --gnu -j+0 --eta --header : 'java -cp "$ST/*" -Xmx2g edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos -outputFormat conll -file "${f%.*}" -outputDirectory $(dirname "$f")' ::: emptfile
 
     export mod
     export AV
