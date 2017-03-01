@@ -3,14 +3,16 @@
 
 stsin=$1    # Required; STS tab separated sentences file, e.g. /almac/ignacio/data/sts_13/sts13_inputs/STS.input.FNWN.txt
 mod=$2      # Required; fastText model (must be a *.bin model)
-ver=$3      # Required; options: "oie" (if compute triplet files is wanted) or "vec" (if computing vectors is wanted) or "all"
-            # (compute all) or "none" (if both triplets and vectors are already computed or not wanted)
+ver=$3      # Required; options: "oie" (if compute triplet files is wanted) or "vec" (if computing vectors is wanted) 
+#                       or "all" (compute all) or "none" (if both triplets and vectors are already computed or not 
+#                       wanted)
 v=$4        # Optional: Toggle verbose
 
-# The program will create a directory in the same directory where tab-separated sentences are located. This directory will
-# overwritten each time you execute the program, at least you specify go ahead to some advances stage of the process (oie,
-# vec, all).
-# Do not forget specifying the directory of this system in your user environment, e.g. export USTS="/home/user/sts_align"
+# The program will create a directory in the same directory called split_sts/ where tab-separated sentences are 
+# located. This directory will overwritten each time you execute the program, unless you specify go ahead to some 
+# advances stage of the process (oie, vec, all).
+# Do not forget specifying the directory where you coned this system in your user environment, e.g. 
+# export USTS="/home/user/sts_align"
 # --------------------------------------------------------------------------------------------------------------------------
 
 stsdir=$(dirname "$stsin")
