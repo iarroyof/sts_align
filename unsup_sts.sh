@@ -1,11 +1,22 @@
+# --------------------------------------------------------------------------------------------------------------------------
+# Main program for STS task.
+
 stsin=$1    # Required; STS tab separated sentences file, e.g. /almac/ignacio/data/sts_13/sts13_inputs/STS.input.FNWN.txt
-mod=$2      # Required; fastText model
+mod=$2      # Required; fastText model (must be a *.bin model)
 ver=$3      # Required; options: "oie" (if compute triplet files is wanted) or "vec" (if computing vectors is wanted) or "all"
             # (compute all) or "none" (if both triplets and vectors are already computed or not wanted)
 v=$4        # Optional: Toggle verbose
+
+# The program will create a directory in the same directory where tab-separated sentences are located. This directory will
+# overwritten each time you execute the program, at least you specify go ahead to some advances stage of the process (oie,
+# vec, all).
+# Do not forget specifying the directory of this system in your user environment, e.g. export USTS="/home/user/sts_align"
+# --------------------------------------------------------------------------------------------------------------------------
+
 stsdir=$(dirname "$stsin")
 
-. ~/.bashrc
+source ~/.bashrc
+
 if [ -z $ST ] || [ -z $FT ] || [ -z $DATA ]; then
     (>&2 echo "A directory is not in variables ST, FT or DATA.")
     (>&2 echo "Directories >>")
