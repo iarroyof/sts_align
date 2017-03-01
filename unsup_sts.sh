@@ -13,6 +13,7 @@ v=$4        # Optional: Toggle verbose
 # advances stage of the process (oie, vec, all).
 # Do not forget specifying the directory where you coned this system in your user environment, e.g. 
 # export USTS="/home/user/sts_align"
+# TODO: Calls to whole coreNLP are too expensive, it is needed to transform them into calls to coreNLPserver instead.
 # --------------------------------------------------------------------------------------------------------------------------
 
 stsdir=$(dirname "$stsin")
