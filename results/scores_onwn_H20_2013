@@ -1,0 +1,561 @@
+a_00000.txt.out: sent :list index out of range
+a_00001.txt.out: sent :list index out of range
+a_00002.txt.out: sent :list index out of range
+a_00003.txt.out: trip :'act'
+a_00004.txt.out: trip :'alphanumeric_sequence'
+a_00005.txt.out: sent :list index out of range
+a_00006.txt.out: trip :'act'
+a_00007.txt.out: sent :list index out of range
+a_00008.txt.out: sent :list index out of range
+a_00009.txt.out: sent :list index out of range
+a_00010.txt.out: trip :'act'
+a_00011.txt.out: trip :'fill'
+a_00012.txt.out: sent :list index out of range
+a_00013.txt.out: sent :list index out of range
+a_00014.txt.out: sent :list index out of range
+a_00015.txt.out: sent :list index out of range
+a_00016.txt.out: sent :list index out of range
+a_00017.txt.out: sent :list index out of range
+a_00018.txt.out: sent :list index out of range
+a_00019.txt.out: sent :list index out of range
+a_00020.txt.out: sent :list index out of range
+a_00021.txt.out: trip :'act'
+a_00022.txt.out: sent :list index out of range
+a_00023.txt.out: sent :list index out of range
+a_00024.txt.out: sent :list index out of range
+a_00025.txt.out: sent :list index out of range
+a_00026.txt.out: sent :list index out of range
+a_00027.txt.out: sent :list index out of range
+a_00028.txt.out: trip :'act'
+a_00029.txt.out: sent :list index out of range
+a_00030.txt.out: sent :list index out of range
+a_00031.txt.out: sent :list index out of range
+a_00032.txt.out: sent :list index out of range
+a_00033.txt.out: sent :list index out of range
+a_00034.txt.out: trip :'act'
+a_00035.txt.out: sent :list index out of range
+a_00036.txt.out: sent :list index out of range
+a_00037.txt.out: trip :'act'
+a_00038.txt.out: sent :list index out of range
+a_00039.txt.out: sent :list index out of range
+a_00040.txt.out: sent :list index out of range
+a_00041.txt.out: trip :'act'
+a_00042.txt.out: trip :'increase'
+a_00043.txt.out: trip :'state'
+a_00044.txt.out: trip :'sense'
+a_00045.txt.out: trip :'act'
+a_00046.txt.out: sent :list index out of range
+a_00047.txt.out: trip :'limit'
+a_00048.txt.out: sent :list index out of range
+a_00049.txt.out: sent :list index out of range
+a_00050.txt.out: trip :'physical_act'
+a_00051.txt.out: sent :list index out of range
+a_00052.txt.out: sent :list index out of range
+a_00053.txt.out: trip :'act'
+a_00054.txt.out: sent :list index out of range
+a_00055.txt.out: sent :list index out of range
+a_00056.txt.out: sent :list index out of range
+a_00057.txt.out: trip :'act'
+a_00058.txt.out: sent :list index out of range
+a_00059.txt.out: sent :list index out of range
+a_00060.txt.out: sent :list index out of range
+a_00061.txt.out: trip :'act'
+a_00062.txt.out: sent :list index out of range
+a_00063.txt.out: trip :'shape'
+a_00064.txt.out: sent :list index out of range
+a_00065.txt.out: sent :list index out of range
+a_00066.txt.out: sent :list index out of range
+a_00067.txt.out: trip :'act'
+a_00068.txt.out: sent :list index out of range
+a_00069.txt.out: trip :'one'
+a_00070.txt.out: trip :'act'
+a_00071.txt.out: sent :list index out of range
+a_00072.txt.out: trip :'smell'
+a_00073.txt.out: sent :list index out of range
+a_00074.txt.out: sent :list index out of range
+a_00075.txt.out: sent :list index out of range
+a_00076.txt.out: sent :list index out of range
+a_00077.txt.out: trip :'narrative'
+a_00078.txt.out: sent :list index out of range
+a_00079.txt.out: trip :'act'
+a_00080.txt.out: sent :list index out of range
+a_00081.txt.out: sent :list index out of range
+a_00082.txt.out: sent :list index out of range
+a_00083.txt.out: sent :list index out of range
+a_00084.txt.out: sent :list index out of range
+a_00085.txt.out: sent :list index out of range
+a_00086.txt.out: sent :list index out of range
+a_00087.txt.out: sent :list index out of range
+a_00088.txt.out: sent :list index out of range
+a_00089.txt.out: sent :list index out of range
+a_00090.txt.out: trip :'act'
+a_00091.txt.out: sent :list index out of range
+a_00092.txt.out: trip :'act'
+a_00093.txt.out: trip :'act'
+a_00094.txt.out: trip :'act'
+a_00095.txt.out: sent :list index out of range
+a_00096.txt.out: sent :list index out of range
+a_00097.txt.out: sent :list index out of range
+a_00098.txt.out: trip :'spiral'
+a_00099.txt.out: trip :'one'
+a_00100.txt.out: trip :'underground_tunnels'
+a_00101.txt.out: trip :'hold'
+a_00102.txt.out: trip :'shape'
+a_00103.txt.out: sent :list index out of range
+a_00104.txt.out: sent :list index out of range
+a_00105.txt.out: sent :list index out of range
+a_00106.txt.out: sent :list index out of range
+a_00107.txt.out: sent :list index out of range
+a_00108.txt.out: sent :list index out of range
+a_00109.txt.out: trip :'fill'
+a_00110.txt.out: trip :'act'
+a_00111.txt.out: trip :'act'
+a_00112.txt.out: sent :list index out of range
+a_00113.txt.out: sent :list index out of range
+a_00114.txt.out: sent :list index out of range
+a_00115.txt.out: sent :list index out of range
+a_00116.txt.out: sent :list index out of range
+a_00117.txt.out: trip :'act'
+a_00118.txt.out: sent :list index out of range
+a_00119.txt.out: sent :list index out of range
+a_00120.txt.out: sent :list index out of range
+a_00121.txt.out: sent :list index out of range
+a_00122.txt.out: trip :'act'
+a_00123.txt.out: sent :list index out of range
+a_00124.txt.out: sent :list index out of range
+a_00125.txt.out: trip :'course'
+a_00126.txt.out: sent :list index out of range
+a_00127.txt.out: sent :list index out of range
+a_00128.txt.out: trip :'move'
+a_00129.txt.out: trip :'act'
+a_00130.txt.out: sent :list index out of range
+a_00131.txt.out: trip :'act'
+a_00132.txt.out: sent :list index out of range
+a_00133.txt.out: trip :'activity'
+a_00134.txt.out: sent :list index out of range
+a_00135.txt.out: trip :'action'
+a_00136.txt.out: sent :list index out of range
+a_00137.txt.out: sent :list index out of range
+a_00138.txt.out: sent :list index out of range
+a_00139.txt.out: sent :list index out of range
+a_00140.txt.out: trip :'sea'
+a_00141.txt.out: sent :list index out of range
+a_00142.txt.out: trip :'cover'
+a_00143.txt.out: sent :list index out of range
+a_00144.txt.out: sent :list index out of range
+a_00145.txt.out: sent :list index out of range
+a_00146.txt.out: trip :'act'
+a_00147.txt.out: sent :list index out of range
+a_00148.txt.out: trip :'act'
+a_00149.txt.out: sent :list index out of range
+a_00150.txt.out: sent :list index out of range
+a_00151.txt.out: trip :'something'
+a_00152.txt.out: sent :list index out of range
+a_00153.txt.out: sent :list index out of range
+a_00154.txt.out: sent :list index out of range
+a_00155.txt.out: sent :list index out of range
+a_00156.txt.out: trip :'beginner'
+a_00157.txt.out: sent :list index out of range
+a_00158.txt.out: trip :'activity'
+a_00159.txt.out: sent :list index out of range
+a_00160.txt.out: trip :'object'
+a_00161.txt.out: sent :list index out of range
+a_00162.txt.out: sent :list index out of range
+a_00163.txt.out: trip :'act'
+a_00164.txt.out: trip :'instance'
+a_00165.txt.out: sent :list index out of range
+a_00166.txt.out: trip :'deficiency'
+a_00167.txt.out: sent :list index out of range
+a_00168.txt.out: sent :list index out of range
+a_00169.txt.out: sent :list index out of range
+a_00170.txt.out: trip :'energy'
+a_00171.txt.out: sent :list index out of range
+a_00172.txt.out: trip :'act'
+a_00173.txt.out: sent :list index out of range
+a_00174.txt.out: sent :list index out of range
+a_00175.txt.out: sent :list index out of range
+a_00176.txt.out: trip :'act'
+a_00177.txt.out: sent :list index out of range
+a_00178.txt.out: sent :list index out of range
+a_00179.txt.out: sent :list index out of range
+a_00180.txt.out: sent :list index out of range
+a_00181.txt.out: sent :list index out of range
+a_00182.txt.out: trip :'act'
+a_00183.txt.out: sent :list index out of range
+a_00184.txt.out: sent :list index out of range
+a_00185.txt.out: sent :list index out of range
+a_00186.txt.out: sent :list index out of range
+a_00187.txt.out: sent :list index out of range
+a_00188.txt.out: sent :list index out of range
+a_00189.txt.out: trip :'that'
+a_00190.txt.out: sent :list index out of range
+a_00191.txt.out: sent :list index out of range
+a_00192.txt.out: sent :list index out of range
+a_00193.txt.out: sent :list index out of range
+a_00194.txt.out: trip :'activity'
+a_00195.txt.out: trip :'act'
+a_00196.txt.out: sent :list index out of range
+a_00197.txt.out: sent :list index out of range
+a_00198.txt.out: trip :'gradual_decrease'
+a_00199.txt.out: sent :list index out of range
+a_00200.txt.out: trip :'act'
+a_00201.txt.out: sent :list index out of range
+a_00202.txt.out: sent :list index out of range
+a_00203.txt.out: sent :list index out of range
+a_00204.txt.out: trip :'it'
+a_00205.txt.out: sent :list index out of range
+a_00206.txt.out: sent :list index out of range
+a_00207.txt.out: sent :list index out of range
+a_00208.txt.out: sent :list index out of range
+a_00209.txt.out: trip :'activity'
+a_00210.txt.out: trip :'retail_store'
+a_00211.txt.out: sent :list index out of range
+a_00212.txt.out: sent :list index out of range
+a_00213.txt.out: sent :list index out of range
+a_00214.txt.out: trip :'trading_price'
+a_00215.txt.out: sent :list index out of range
+a_00216.txt.out: sent :list index out of range
+a_00217.txt.out: trip :'someone'
+a_00218.txt.out: sent :list index out of range
+a_00219.txt.out: trip :'quality'
+a_00220.txt.out: sent :list index out of range
+a_00221.txt.out: sent :list index out of range
+a_00222.txt.out: sent :list index out of range
+a_00223.txt.out: sent :list index out of range
+a_00224.txt.out: sent :list index out of range
+a_00225.txt.out: sent :list index out of range
+a_00226.txt.out: sent :list index out of range
+a_00227.txt.out: trip :'increase'
+a_00228.txt.out: trip :'activity'
+a_00229.txt.out: trip :'act'
+a_00230.txt.out: sent :list index out of range
+a_00231.txt.out: sent :list index out of range
+a_00232.txt.out: sent :list index out of range
+a_00233.txt.out: trip :'act'
+a_00234.txt.out: trip :'act'
+a_00235.txt.out: sent :list index out of range
+a_00236.txt.out: trip :'act'
+a_00237.txt.out: sent :list index out of range
+a_00238.txt.out: sent :list index out of range
+a_00239.txt.out: sent :list index out of range
+a_00240.txt.out: sent :list index out of range
+a_00241.txt.out: sent :list index out of range
+a_00242.txt.out: sent :list index out of range
+a_00243.txt.out: sent :list index out of range
+a_00244.txt.out: sent :list index out of range
+a_00245.txt.out: sent :list index out of range
+a_00246.txt.out: trip :'process'
+a_00247.txt.out: sent :list index out of range
+a_00248.txt.out: sent :list index out of range
+a_00249.txt.out: sent :list index out of range
+a_00250.txt.out: sent :list index out of range
+a_00251.txt.out: trip :'act'
+a_00252.txt.out: trip :'beat'
+a_00253.txt.out: trip :'act'
+a_00254.txt.out: trip :'rein'
+a_00255.txt.out: sent :list index out of range
+a_00256.txt.out: sent :list index out of range
+a_00257.txt.out: sent :list index out of range
+a_00258.txt.out: sent :list index out of range
+a_00259.txt.out: sent :list index out of range
+a_00260.txt.out: sent :list index out of range
+a_00261.txt.out: sent :list index out of range
+a_00262.txt.out: sent :list index out of range
+a_00263.txt.out: sent :list index out of range
+a_00264.txt.out: sent :list index out of range
+a_00265.txt.out: sent :list index out of range
+a_00266.txt.out: trip :'position'
+a_00267.txt.out: trip :'act'
+a_00268.txt.out: sent :list index out of range
+a_00269.txt.out: sent :list index out of range
+a_00270.txt.out: sent :list index out of range
+a_00271.txt.out: sent :list index out of range
+a_00272.txt.out: trip :'one'
+a_00273.txt.out: sent :list index out of range
+a_00274.txt.out: sent :list index out of range
+a_00275.txt.out: sent :list index out of range
+a_00276.txt.out: sent :list index out of range
+a_00277.txt.out: sent :list index out of range
+a_00278.txt.out: trip :'act'
+a_00279.txt.out: sent :list index out of range
+a_00280.txt.out: sent :list index out of range
+a_00281.txt.out: sent :list index out of range
+a_00282.txt.out: trip :'act'
+a_00283.txt.out: sent :list index out of range
+a_00284.txt.out: sent :list index out of range
+a_00285.txt.out: sent :list index out of range
+a_00286.txt.out: trip :'act'
+a_00287.txt.out: sent :list index out of range
+a_00288.txt.out: trip :'guess'
+a_00289.txt.out: sent :list index out of range
+a_00290.txt.out: sent :list index out of range
+a_00291.txt.out: trip :'activity'
+a_00292.txt.out: sent :list index out of range
+a_00293.txt.out: sent :list index out of range
+a_00294.txt.out: sent :list index out of range
+a_00295.txt.out: trip :'cluster'
+a_00296.txt.out: sent :list index out of range
+a_00297.txt.out: trip :'something'
+a_00298.txt.out: trip :'one'
+a_00299.txt.out: sent :list index out of range
+a_00300.txt.out: sent :list index out of range
+a_00301.txt.out: sent :list index out of range
+a_00302.txt.out: sent :list index out of range
+a_00303.txt.out: sent :list index out of range
+a_00304.txt.out: sent :list index out of range
+a_00305.txt.out: trip :'act'
+a_00306.txt.out: sent :list index out of range
+a_00307.txt.out: trip :'lever'
+a_00308.txt.out: trip :'act'
+a_00309.txt.out: sent :list index out of range
+a_00310.txt.out: sent :list index out of range
+a_00311.txt.out: trip :'casual_game'
+a_00312.txt.out: sent :list index out of range
+a_00313.txt.out: sent :list index out of range
+a_00314.txt.out: trip :'act'
+a_00315.txt.out: sent :list index out of range
+a_00316.txt.out: trip :'act'
+a_00317.txt.out: trip :'something'
+a_00318.txt.out: sent :list index out of range
+a_00319.txt.out: sent :list index out of range
+a_00320.txt.out: trip :'act'
+a_00321.txt.out: sent :list index out of range
+a_00322.txt.out: trip :'method'
+a_00323.txt.out: sent :list index out of range
+a_00324.txt.out: sent :list index out of range
+a_00325.txt.out: trip :'address'
+a_00326.txt.out: sent :list index out of range
+a_00327.txt.out: sent :list index out of range
+a_00328.txt.out: trip :'act'
+a_00329.txt.out: sent :list index out of range
+a_00330.txt.out: sent :list index out of range
+a_00331.txt.out: sent :list index out of range
+a_00332.txt.out: trip :'act'
+a_00333.txt.out: sent :list index out of range
+a_00334.txt.out: trip :'raise'
+a_00335.txt.out: sent :list index out of range
+a_00336.txt.out: sent :list index out of range
+a_00337.txt.out: sent :list index out of range
+a_00338.txt.out: sent :list index out of range
+a_00339.txt.out: sent :list index out of range
+a_00340.txt.out: trip :'club'
+a_00341.txt.out: sent :list index out of range
+a_00342.txt.out: sent :list index out of range
+a_00343.txt.out: trip :'act'
+a_00344.txt.out: sent :list index out of range
+a_00345.txt.out: trip :'advance'
+a_00346.txt.out: sent :list index out of range
+a_00347.txt.out: trip :'act'
+a_00348.txt.out: sent :list index out of range
+a_00349.txt.out: sent :list index out of range
+a_00350.txt.out: trip :'act'
+a_00351.txt.out: trip :'act'
+a_00352.txt.out: sent :list index out of range
+a_00353.txt.out: sent :list index out of range
+a_00354.txt.out: trip :'act'
+a_00355.txt.out: trip :'increase'
+a_00356.txt.out: sent :list index out of range
+a_00357.txt.out: trip :'act'
+a_00358.txt.out: trip :'supply'
+a_00359.txt.out: sent :list index out of range
+a_00360.txt.out: sent :list index out of range
+a_00361.txt.out: trip :'act'
+a_00362.txt.out: sent :list index out of range
+a_00363.txt.out: sent :list index out of range
+a_00364.txt.out: sent :list index out of range
+a_00365.txt.out: sent :list index out of range
+a_00366.txt.out: sent :list index out of range
+a_00367.txt.out: sent :list index out of range
+a_00368.txt.out: sent :list index out of range
+a_00369.txt.out: sent :list index out of range
+a_00370.txt.out: sent :list index out of range
+a_00371.txt.out: sent :list index out of range
+a_00372.txt.out: trip :'whip'
+a_00373.txt.out: sent :list index out of range
+a_00374.txt.out: trip :'manuscript'
+a_00375.txt.out: sent :list index out of range
+a_00376.txt.out: sent :list index out of range
+a_00377.txt.out: trip :'break_association'
+a_00378.txt.out: sent :list index out of range
+a_00379.txt.out: trip :'act'
+a_00380.txt.out: sent :list index out of range
+a_00381.txt.out: sent :list index out of range
+a_00382.txt.out: sent :list index out of range
+a_00383.txt.out: sent :list index out of range
+a_00384.txt.out: sent :list index out of range
+a_00385.txt.out: sent :list index out of range
+a_00386.txt.out: sent :list index out of range
+a_00387.txt.out: trip :'activity'
+a_00388.txt.out: sent :list index out of range
+a_00389.txt.out: trip :'hold'
+a_00390.txt.out: sent :list index out of range
+a_00391.txt.out: sent :list index out of range
+a_00392.txt.out: trip :'act'
+a_00393.txt.out: trip :'termination'
+a_00394.txt.out: trip :'scratch'
+a_00395.txt.out: sent :list index out of range
+a_00396.txt.out: sent :list index out of range
+a_00397.txt.out: trip :'move'
+a_00398.txt.out: sent :list index out of range
+a_00399.txt.out: sent :list index out of range
+a_00400.txt.out: sent :list index out of range
+a_00401.txt.out: sent :list index out of range
+a_00402.txt.out: trip :'act'
+a_00403.txt.out: sent :list index out of range
+a_00404.txt.out: trip :'act'
+a_00405.txt.out: sent :list index out of range
+a_00406.txt.out: sent :list index out of range
+a_00407.txt.out: sent :list index out of range
+a_00408.txt.out: trip :'act'
+a_00409.txt.out: trip :'activity'
+a_00410.txt.out: sent :list index out of range
+a_00411.txt.out: trip :'copy'
+a_00412.txt.out: sent :list index out of range
+a_00413.txt.out: sent :list index out of range
+a_00414.txt.out: sent :list index out of range
+a_00415.txt.out: sent :list index out of range
+a_00416.txt.out: trip :'manner'
+a_00417.txt.out: trip :'act'
+a_00418.txt.out: trip :'lay_off'
+a_00419.txt.out: sent :list index out of range
+a_00420.txt.out: sent :list index out of range
+a_00421.txt.out: sent :list index out of range
+a_00422.txt.out: sent :list index out of range
+a_00423.txt.out: sent :list index out of range
+a_00424.txt.out: trip :'act'
+a_00425.txt.out: sent :list index out of range
+a_00426.txt.out: sent :list index out of range
+a_00427.txt.out: trip :'strike'
+a_00428.txt.out: sent :list index out of range
+a_00429.txt.out: sent :list index out of range
+a_00430.txt.out: sent :list index out of range
+a_00431.txt.out: trip :'one_currency'
+a_00432.txt.out: sent :list index out of range
+a_00433.txt.out: trip :'act'
+a_00434.txt.out: trip :'perceptual_distinction'
+a_00435.txt.out: sent :list index out of range
+a_00436.txt.out: sent :list index out of range
+a_00437.txt.out: sent :list index out of range
+a_00438.txt.out: sent :list index out of range
+a_00439.txt.out: sent :list index out of range
+a_00440.txt.out: sent :list index out of range
+a_00441.txt.out: sent :list index out of range
+a_00442.txt.out: sent :list index out of range
+a_00443.txt.out: trip :'act'
+a_00444.txt.out: sent :list index out of range
+a_00445.txt.out: trip :'form_schemes'
+a_00446.txt.out: sent :list index out of range
+a_00447.txt.out: trip :'act'
+a_00448.txt.out: trip :'one'
+a_00449.txt.out: sent :list index out of range
+a_00450.txt.out: sent :list index out of range
+a_00451.txt.out: trip :'act'
+a_00452.txt.out: sent :list index out of range
+a_00453.txt.out: sent :list index out of range
+a_00454.txt.out: sent :list index out of range
+a_00455.txt.out: sent :list index out of range
+a_00456.txt.out: sent :list index out of range
+a_00457.txt.out: sent :list index out of range
+a_00458.txt.out: sent :list index out of range
+a_00459.txt.out: sent :list index out of range
+a_00460.txt.out: sent :list index out of range
+a_00461.txt.out: sent :list index out of range
+a_00462.txt.out: sent :list index out of range
+a_00463.txt.out: sent :list index out of range
+a_00464.txt.out: trip :'act'
+a_00465.txt.out: trip :'act'
+a_00466.txt.out: sent :list index out of range
+a_00467.txt.out: sent :list index out of range
+a_00468.txt.out: trip :'cause'
+a_00469.txt.out: trip :'move'
+a_00470.txt.out: sent :list index out of range
+a_00471.txt.out: trip :'act'
+a_00472.txt.out: sent :list index out of range
+a_00473.txt.out: sent :list index out of range
+a_00474.txt.out: trip :'situate'
+a_00475.txt.out: sent :list index out of range
+a_00476.txt.out: trip :'act'
+a_00477.txt.out: sent :list index out of range
+a_00478.txt.out: trip :'currency'
+a_00479.txt.out: sent :list index out of range
+a_00480.txt.out: trip :'act'
+a_00481.txt.out: sent :list index out of range
+a_00482.txt.out: sent :list index out of range
+a_00483.txt.out: trip :'act'
+a_00484.txt.out: trip :'act'
+a_00485.txt.out: trip :'act'
+a_00486.txt.out: sent :list index out of range
+a_00487.txt.out: trip :'copy'
+a_00488.txt.out: trip :'act'
+a_00489.txt.out: sent :list index out of range
+a_00490.txt.out: sent :list index out of range
+a_00491.txt.out: sent :list index out of range
+a_00492.txt.out: sent :list index out of range
+a_00493.txt.out: sent :list index out of range
+a_00494.txt.out: sent :list index out of range
+a_00495.txt.out: sent :list index out of range
+a_00496.txt.out: trip :'work'
+a_00497.txt.out: trip :'act'
+a_00498.txt.out: sent :list index out of range
+a_00499.txt.out: sent :list index out of range
+a_00500.txt.out: sent :list index out of range
+a_00501.txt.out: trip :'act'
+a_00502.txt.out: sent :list index out of range
+a_00503.txt.out: trip :'act'
+a_00504.txt.out: sent :list index out of range
+a_00505.txt.out: trip :'act'
+a_00506.txt.out: sent :list index out of range
+a_00507.txt.out: sent :list index out of range
+a_00508.txt.out: trip :'document'
+a_00509.txt.out: sent :list index out of range
+a_00510.txt.out: trip :'act'
+a_00511.txt.out: trip :'act'
+a_00512.txt.out: trip :'act'
+a_00513.txt.out: trip :'act'
+a_00514.txt.out: trip :'distinctive_taste'
+a_00515.txt.out: sent :list index out of range
+a_00516.txt.out: sent :list index out of range
+a_00517.txt.out: sent :list index out of range
+a_00518.txt.out: sent :list index out of range
+a_00519.txt.out: sent :list index out of range
+a_00520.txt.out: trip :'act'
+a_00521.txt.out: sent :list index out of range
+a_00522.txt.out: trip :'act'
+a_00523.txt.out: trip :'watch'
+a_00524.txt.out: sent :list index out of range
+a_00525.txt.out: sent :list index out of range
+a_00526.txt.out: sent :list index out of range
+a_00527.txt.out: sent :list index out of range
+a_00528.txt.out: trip :'act'
+a_00529.txt.out: trip :'someone'
+a_00530.txt.out: sent :list index out of range
+a_00531.txt.out: trip :'solid_3d_object'
+a_00532.txt.out: sent :list index out of range
+a_00533.txt.out: sent :list index out of range
+a_00534.txt.out: sent :list index out of range
+a_00535.txt.out: sent :list index out of range
+a_00536.txt.out: sent :list index out of range
+a_00537.txt.out: sent :list index out of range
+a_00538.txt.out: sent :list index out of range
+a_00539.txt.out: sent :list index out of range
+a_00540.txt.out: sent :list index out of range
+a_00541.txt.out: trip :'act'
+a_00542.txt.out: trip :'act'
+a_00543.txt.out: sent :list index out of range
+a_00544.txt.out: sent :list index out of range
+a_00545.txt.out: trip :'act'
+a_00546.txt.out: sent :list index out of range
+a_00547.txt.out: trip :'act'
+a_00548.txt.out: trip :'act'
+a_00549.txt.out: sent :list index out of range
+a_00550.txt.out: trip :'cover'
+a_00551.txt.out: trip :'act'
+a_00552.txt.out: sent :list index out of range
+a_00553.txt.out: sent :list index out of range
+a_00554.txt.out: sent :list index out of range
+a_00555.txt.out: sent :list index out of range
+a_00556.txt.out: sent :list index out of range
+a_00557.txt.out: sent :list index out of range
+a_00558.txt.out: trip :'act'
+a_00559.txt.out: sent :list index out of range
+a_00560.txt.out: sent :list index out of range

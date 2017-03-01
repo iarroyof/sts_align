@@ -2,16 +2,15 @@ stsin=$1    # Required; STS tab separated sentences file, e.g. /almac/ignacio/da
 mod=$2      # Required; fastText model
 ver=$3      # Required; options: "oie" (if compute triplet files is wanted) or "vec" (if computing vectors is wanted) or "all"
             # (compute all) or "none" (if both triplets and vectors are already computed or not wanted)
-v=$4        # Optional: Toggle verbose "verbo"
+v=$4        # Optional: Toggle verbose
 stsdir=$(dirname "$stsin")
 
 . ~/.bashrc
-if [ -z $ST ] || [ -z $FT ] || [ -z $DATA ] || [ -z $USTS ]; then
+if [ -z $ST ] || [ -z $FT ] || [ -z $DATA ]; then
     (>&2 echo "A directory is not in variables ST, FT or DATA.")
     (>&2 echo "Directories >>")
     (>&2 echo "Stanford: $ST")
     (>&2 echo "FastText: $FT")
-    (>&2 echo "FastText: $USTS")
     (>&2 echo "DATA: $DATA")
     exit 111;
 fi
@@ -67,12 +66,10 @@ if [[ !( "$Na" == "$N" ) && !( "$Nb" == "$N" ) || (("$ver" == "oie") || ("$ver" 
 fi
 
 if [[ ("$ver" == "vec") || ("$ver" == "all") ]]; then
-# Fill out empty triplet files with original sentence (when oie couldn't found triplets).
-    for f in `ls "$stsdir"/split_sts/*.txt.out`; do
-        if [ \! -s "$f" ]; then
-            #cat "${f%.*}" | bash bigrams.sh > "$f"
-            java -cp "$ST/*" -Xmx2g edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos -outputFormat conll -file "${f%.*}" -outputDirectory $(dirname "$f")
-            python vpnp.py -i "${f%.*}".conll > "$f"
+
+    for f in `ls "$stsdir"/split_sts/*.txt.out`; do # Fill out empty triplet files with original sentence (when oie couldn't found triplets)
+        if [ \! -s $f ]; then
+            cat "${f%.*}" > "$f"
         fi
     done
 
@@ -90,4 +87,4 @@ else
     parallel -k --noswap --gnu -j+0 --eta --header : 'python $AV/trip_comp.py -A {filea} -v' ::: filea `ls "$stsdir"/split_sts/a_*.txt.out`
 fi
 
-(>&2 echo "C'est fini...!!!")
+(>&2 echo "C'est fini.")
