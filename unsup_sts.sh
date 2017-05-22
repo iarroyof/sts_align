@@ -29,7 +29,7 @@ if [ -z $ST ] || [ -z $FT ] || [ -z $DATA ]; then
     exit 111;
 fi
 
-cpus=10 # Assign number of cpus
+cpus=7 # Assign number of cpus
 if [ ! -z "$v" ]; then
     if [ ! "$v" == "verbo" ]; then
         let "cpus=$v"
