@@ -28,19 +28,12 @@
 # Now you should be able to execute pyspark by running the command pyspark in
 # the terminal as well as from python programs.
 
-from pyspark import SparkContext, SparkConf
 from pyspark.ml.feature import RegexTokenizer
 from pyspark.ml.feature import IDF, IDFModel
 from pyspark.ml.feature import CountVectorizer
-from pyspark.mllib.linalg import Vectors
 from pyspark.sql import SparkSession
-from os.path import basename, splitext, dirname
+from os.path import dirname
 import argparse
-import logging
-
-logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s',
-                    level=logging.INFO)
-
 
 if __name__ == "__main__":
 
@@ -55,16 +48,9 @@ if __name__ == "__main__":
     args = parser.parse_args()
     # Spark Config
     spark = SparkSession.builder.getOrCreate()
-    #spark = SparkSession\
-    #    .builder\
-    #    .appName("TFidf_transformer")\
-    #    .getOrCreate()
     sc = spark.sparkContext
-    #conf = SparkConf().setAppName("tfidf_app")
-    #sc = SparkContext()
 
     text_file=args.input
-
     if  not args.model:
         tfidf_dir=dirname(text_file)+"/tfidf_model"
     else:
@@ -80,6 +66,7 @@ if __name__ == "__main__":
     cv = CountVectorizer(inputCol="words", outputCol="tf", minDF=2.0)
     cvTF=cv.fit(tokenized)
     tf=cvTF.transform(tokenized)
+
     if not args.predict:
         idf = IDF(inputCol="tf", outputCol="idf")
         idfModel = idf.fit(tf)
