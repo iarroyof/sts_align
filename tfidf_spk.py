@@ -35,6 +35,22 @@ from pyspark.sql import SparkSession
 from os.path import dirname
 import argparse
 
+class spark_streamer(object):
+    """ This Object streams the input raw text file row by row. The constructor
+    allows for streaming a dictionary (object), strings (True), lists (by space
+    or any character) and sublists of strings (position='a:b') or a substring
+    from the list in a specific position (position=index).
+    """
+    def __init__(self, spark_context, file_name):
+        self.file_name=file_name
+        self.sc=spark_context
+
+    def __iter__(self):
+        #for line in open(self.file_name):
+        # assume there's one document per line, tokens separated by whitespace
+        for id, doc in enumerate(self.sc.textFile(self.ile_name).collect()):
+            yield (id, doc)
+
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
@@ -57,9 +73,12 @@ if __name__ == "__main__":
         tfidf_dir=args.model
 
     documents = sc.textFile(text_file)
-    docsDataFrame = spark.createDataFrame([(id, doc)
-                                for id, doc in enumerate(documents.collect())],
-                                ["id", "docs"])
+    #docsDataFrame = spark.createDataFrame([(id, doc)
+    #                            for id, doc in enumerate(documents.collect())],
+    #                            ["id", "docs"])
+    #stream=spark_streamer(sc,text_file)
+    #docsDataFrame = spark.createDataFrame([(id, doc) for id, doc in stream], ["id", "docs"])
+    docsDataFrame=sc.parallelize([(id, doc) for id, doc in enumerate(documents.collect())]).toDF(["id", "docs"])
     regexTokenizer = RegexTokenizer(inputCol="docs", outputCol="words", pattern="\\W")
     tokenized = regexTokenizer.transform(docsDataFrame)
 
