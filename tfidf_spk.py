@@ -65,6 +65,9 @@ if __name__ == "__main__":
     # Spark Config
     spark = SparkSession.builder.getOrCreate()
     sc = spark.sparkContext
+    sc.setSystemProperty('spark.executor.memory', '6g')
+    sc.setSystemProperty('spark.driver.memory', '6g')
+    sc.setSystemProperty('spark.num.executors', '5')
 
     text_file=args.input
     if  not args.model:
@@ -73,12 +76,12 @@ if __name__ == "__main__":
         tfidf_dir=args.model
 
     documents = sc.textFile(text_file)
-    #docsDataFrame = spark.createDataFrame([(id, doc)
-    #                            for id, doc in enumerate(documents.collect())],
-    #                            ["id", "docs"])
+    docsDataFrame = spark.createDataFrame([(id, doc)
+                                for id, doc in enumerate(documents.collect())],
+                                ["id", "docs"])
     #stream=spark_streamer(sc,text_file)
     #docsDataFrame = spark.createDataFrame([(id, doc) for id, doc in stream], ["id", "docs"])
-    docsDataFrame=sc.parallelize([(id, doc) for id, doc in enumerate(documents.collect())]).toDF(["id", "docs"])
+    #docsDataFrame=sc.parallelize([(id, doc) for id, doc in enumerate(documents.collect())]).toDF(["id", "docs"])
     regexTokenizer = RegexTokenizer(inputCol="docs", outputCol="words", pattern="\\W")
     tokenized = regexTokenizer.transform(docsDataFrame)
 
