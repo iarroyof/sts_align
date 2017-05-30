@@ -118,8 +118,8 @@ if __name__ == "__main__":
 
     embedding=load_vectors(args.embed, binary=False, encoding="latin-1")
     # TODO: In the case this approach to work, try other pairwise metrics (sklearn)
-    embedding_name="_".join(args.embed.split("/")[-1].split(".")[:-1])
-    suffix= "_".join([embedding_name, args.comb, args.pi_tfidf, args.suffix]).strip("_")
+    embedding_name=args.embed #"_".join(args.embed.split("/")[-1].split(".")[:-1])
+    suffix= "_".join([embedding_name, args.ortho, args.comb, args.pi_tfidf, args.suffix]).strip("_")
 
     distances=[]
     missing_bow=[]
