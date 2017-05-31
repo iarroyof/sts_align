@@ -127,9 +127,9 @@ if __name__ == "__main__":
     for pair in pairs:
         p=pair.split("\t")
         weights_a, m=infer_tfidf_weights(' '.join(clean_Ustring_fromU(p[0])), tfidf, predict=pred_tfidf)
-        missing_bow+=m
+        missing_bow+= [m] if isinstance(m, list) else m
         weights_b, m=infer_tfidf_weights(' '.join(clean_Ustring_fromU(p[1])), tfidf, predict=pred_tfidf)
-        missing_bow+=m
+        missing_bow+=[m] if isinstance(m, list) else m
         for w in weights_a:
             try:
                 weights_a[w]=(weights_a[w], embedding[w])
